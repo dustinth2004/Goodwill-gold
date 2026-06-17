@@ -1,0 +1,19 @@
+{
+  "name": "Goodwill Gold — Thrift Price Scanner",
+  "short_name": "Goodwill Gold",
+  "description": "Snap a thrift-store item and instantly see if it's a steal: condition grade + live resale price range.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f1ea",
+  "theme_color": "#0b6b3a",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
