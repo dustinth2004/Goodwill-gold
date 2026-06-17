@@ -12,6 +12,7 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 const els = {
+  captureCard: $("capture-card"),
   camera: $("camera"),
   thumbs: $("thumbs"),
   makeModel: $("make-model"),
@@ -163,6 +164,7 @@ function renderFollowUp(data) {
     els.followupBody.appendChild(ul);
     show(els.followupContinue);
     hide(els.accessoryButtons);
+    show(els.captureCard); // keep capture visible so the user can add the photos
   } else if (fu.accessories) {
     els.followupTitle.textContent = "Quick question";
     const q = document.createElement("p");
@@ -179,6 +181,7 @@ function renderFollowUp(data) {
     }
     show(els.accessoryButtons);
     hide(els.followupContinue);
+    hide(els.captureCard); // accessories-only: just need the yes/no answer
   }
   show(els.followupCard);
   els.followupCard.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -257,6 +260,8 @@ function renderResult(data) {
     <button class="again-btn" type="button" id="reset-btn">Scan another item</button>
   `;
   $("reset-btn").addEventListener("click", resetAll);
+  hide(els.captureCard); // declutter — verdict is the focus
+  hide(els.followupCard);
   show(els.resultCard);
   els.resultCard.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -269,6 +274,7 @@ function resetAll() {
   renderThumbs();
   hide(els.resultCard);
   hide(els.followupCard);
+  show(els.captureCard);
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
